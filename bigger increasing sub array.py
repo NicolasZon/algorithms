@@ -1,6 +1,11 @@
+"""
+This is an explanation
+"""
+
+# Time 0(n)
 def nice(arr):
 
-    first = 0
+    firstIndex = 0
     maxSize = 1
     actualSize = 1
 
@@ -9,15 +14,16 @@ def nice(arr):
             actualSize += 1
         else:
             if(actualSize > maxSize):
-                first = i -actualSize
+                firstIndex = i - actualSize
                 maxSize = actualSize
             actualSize = 1
 
     if (actualSize > maxSize):
-        first = len(arr) - actualSize
+        firstIndex = len(arr) - actualSize
         maxSize = actualSize
 
-    return arr[first:first+maxSize]
+    return arr[firstIndex:firstIndex+maxSize]
 
-arr = [2,1,23,33,232,1,2,3,4,4]
-print(nice(arr))
+print(nice([2,1,23,33,232,1,2,3,4,4]))
+print(nice([2,1,23,33,232,1,2,4]))
+print(nice([2,1]))
