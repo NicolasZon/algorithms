@@ -11,23 +11,16 @@ Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal numb
 """
 
 def findMaxLength(nums: list) -> int:
-        dictAns = {}
-        dictAns[0] = [0,0]
-
-        x = maxAns = 0
-        for i in range(len(nums)):
-            if nums[i] == 0:
-                x -= 1
-            else:
-                x += 1
-
-            if x in dictAns:
-                dictAns[x][1] = i + 1
-                maxAns = max(maxAns, dictAns[x][1] - dictAns[x][0])
-            else:
-                dictAns[x] = [i + 1, i + 1]
-
-        return maxAns
+    dictAns = {}
+    dictAns[0] = 0
+    x = maxAns = 0
+    for i in range(len(nums)):
+        x += 1 if nums[i] == 1 else -1
+        if x in dictAns:
+            maxAns = max(maxAns, i + 1 - dictAns[x])
+        else:
+            dictAns[x] = i + 1
+    return maxAns
 
 print(findMaxLength([0,0,1]))
 print(findMaxLength([0,0,1,0,1,1,0,0,0,0,1]))
