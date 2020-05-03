@@ -1,9 +1,9 @@
 """
-This is an explanation
+Given an array of n positive integers. We need to find the largest increasing sequence of consecutive positive integers.
 """
 
 # Time 0(n)
-def nice(arr):
+def largest_increasing_subarray(arr):
 
     firstIndex = 0
     maxSize = 1
@@ -24,6 +24,6 @@ def nice(arr):
 
     return arr[firstIndex:firstIndex+maxSize]
 
-print(nice([2,1,23,33,232,1,2,3,4,4]))
-print(nice([2,1,23,33,232,1,2,4]))
-print(nice([2,1]))
+print(largest_increasing_subarray([2, 1, 23, 33, 232, 1, 2, 3, 4, 4]))
+print(largest_increasing_subarray([2, 1, 23, 33, 232, 1, 2, 4]))
+print(largest_increasing_subarray([2, 1]))
